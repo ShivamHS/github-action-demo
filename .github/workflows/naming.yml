@@ -1,4 +1,4 @@
-name: Naming Convention
+name:  Naming Convention
 on:
  pull_request:
    types:
@@ -8,10 +8,17 @@ jobs:
  enforce-naming:
    runs-on: ubuntu-latest
    steps:
+     - name: Check if Target Branch is main
+       run: |
+         target_branch=${{ github.event.pull_request.base.ref }}
+         if [[ $target_branch != "main" ]]; then
+           echo "Skipping checks as the target branch is not 'sprint'."
+           exit 0
+         fi
      - name: Check Branch Name
        run: |
          branch_name=${{ github.event.pull_request.head.ref }}
-         if [[ ! $branch_name =~ ^[a-z]+/[a-z]+/[a-z0-9_-]+$ ]]; then
+         if [[ ! $branch_name =~ ^GEP/CR-|bug-|feature-[A-Z]+\d+$ ]]; then
            echo "Branch name does not match the required pattern."
            exit 1
          fi
