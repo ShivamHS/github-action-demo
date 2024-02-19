@@ -1,4 +1,4 @@
-name: PR Nomencleture
+name: PR nomencleture
 on:
  pull_request:
    branches:
@@ -17,6 +17,7 @@ jobs:
        $regexPattern = "^GEP/[A-Z]+-\d+/.+"
        if ($prTitle -notmatch $regexPattern) {
          Write-Output "PR title does not match the required format. Please use 'GEP/JIRA-ID/feature-name' format."
+         echo "::error::PR title does not match the required format."
          exit 1
        }
    - name: Set PR status check
@@ -34,3 +35,13 @@ jobs:
      - name: Set PR status
        if: ${{ needs.pr-title-check.outputs.status != 'failure' }}
        run: echo "All checks passed"
+# Block PR merge if PR title check fails
+ block_merge:
+   runs-on: ubuntu-latest
+   needs: [pr-title-check]
+   if: ${{ needs.pr-title-check.outputs.status == 'failure' }}
+   steps:
+     - name: Block PR merge
+       run: |
+         echo "PR title check failed. Blocking PR merge."
+         exit 1
