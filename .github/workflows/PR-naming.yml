@@ -1,6 +1,8 @@
 name: PR Nomencleture
 on:
  pull_request:
+   branches:
+     - main
    types: [opened, edited]
 jobs:
  pr-title-check:
@@ -8,10 +10,6 @@ jobs:
    steps:
    - name: Check PR title format
      uses: actions/checkout@v2
-   - name: Install PowerShell
-     uses: actions/setup-powershell@v1
-     with:
-       pwsh-version: '7.1'
    - name: Check PR title
      id: check_pr_title
      run: |
@@ -25,7 +23,8 @@ jobs:
      if: ${{ steps.check_pr_title.outcome == 'failure' }}
      run: |
        echo "The PR title does not match the required format. Please update the title and try again."
-       echo "::set-output name=status::failure"
+       echo "::error::PR title does not match the required format."
+       exit 1
  # Add more jobs for other checks or actions required by your workflow
 # Mark the status check as successful if all checks pass
  status_check:
