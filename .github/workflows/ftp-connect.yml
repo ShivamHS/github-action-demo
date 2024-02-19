@@ -1,10 +1,6 @@
-name: .NET Core Desktop
+name: FTP-Connect
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
