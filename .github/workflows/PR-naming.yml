@@ -14,7 +14,7 @@ jobs:
      id: check_pr_title
      run: |
        $prTitle = "${{ github.event.pull_request.title }}"
-       $regexPattern = "^GEP/[A-Z]+-\d+/.+"
+       $regexPattern = "GEP/\d+/[a-zA-Z0-9_]+"
        if ($prTitle -notmatch $regexPattern) {
          Write-Output "PR title does not match the required format. Please use 'GEP/JIRA-ID/feature-name' format."
          exit 1
