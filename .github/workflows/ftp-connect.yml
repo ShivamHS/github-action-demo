@@ -32,8 +32,8 @@ jobs:
     - name: Upload to Kudu using FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:  
-          server: ftps://waws-prod-blu-253.ftp.azurewebsites.windows.net
+          server: ftp://waws-prod-blu-253.ftp.azurewebsites.windows.net/site/wwwroot
           username: ietestang\$ietestang
-          password: f2ejLmilgJ03GZ2xD50ir37d0HaTqba5jHZ97NGiig1gMZirDLLk5G4Dxcej
+          password: AQLFNfUlCq29SLCD8eUAfYCtAytzsgE.fSGbpbctjdX7zl1gJzX52f-VtI3Or7uiiJYkQzUMJGY
           protocol: ftp
           log-level: verbose
