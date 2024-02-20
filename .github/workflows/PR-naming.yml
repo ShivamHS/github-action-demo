@@ -1,9 +1,11 @@
 name: PR Nomencleture
 on:
- pull_request:
+  pull_request:
+  pull_request_target:
+
    branches:
      - main
-   types: [opened, edited]
+   types: [opened, edited,synchronize]
 jobs:
  pr-title-check:
    runs-on: windows-latest
