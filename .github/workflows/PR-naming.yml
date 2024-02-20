@@ -25,12 +25,3 @@ jobs:
        echo "The PR title does not match the required format. Please update the title and try again."
        echo "::error::PR title does not match the required format."
        exit 1
- # Add more jobs for other checks or actions required by your workflow
-# Mark the status check as successful if all checks pass
- status_check:
-   runs-on: ubuntu-latest
-   needs: [pr-title-check]  # Add other jobs as needed
-   steps:
-     - name: Set PR status
-       if: ${{ needs.pr-title-check.outputs.status != 'failure' }}
-       run: echo "All checks passed"
