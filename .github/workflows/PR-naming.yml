@@ -1,10 +1,11 @@
 name: PR Nomencleture
 on:
+  push:
+    branches:
+      - uk_dev
   pull_request:
+    types: [opened, synchronize, reopened]
 
-   branches:
-     - main
-   types: [opened, edited,synchronize]
 jobs:
  pr-title-check:
    runs-on: windows-latest
