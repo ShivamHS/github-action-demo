@@ -19,10 +19,10 @@ jobs:
           fetch-depth: 0 # Fetch all history for tags to be accessible
           # Fine-grained PAT with contents:write and workflows:write
           # scopes
-          token: ${{ secrets.GH_TOKEN }}  
+          token: ${{ secrets.GITHUB_TOKEN }}  
   
       - name: List Tags
-        run: git tag --list  # List all tags in the repository
+        run: git tag --list  
   
       - name: Set old tag
         id: set_old_tag
