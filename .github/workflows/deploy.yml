@@ -53,7 +53,7 @@ jobs:
         - name: Downlaod Artifact
           uses: actions/download-artifact@v3
           with:
-           name: AppPackages
+           name: MSIX Package
         - name: Deploy to azure
           uses: azure/webapps-deploy@v2
           with:
