@@ -44,12 +44,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: MSIX Package
+        path: ./_build
 
     - name: Display artifact
       run: Get-ChildItem -Recurse
+
 
     - name: Deploy to azure
       uses: azure/webapps-deploy@v2
       with:
        app-name: web-app-0312
        publish-profile: <publishData><publishProfile profileName="web-app-0312-stagging-slot - Web Deploy" publishMethod="MSDeploy" publishUrl="web-app-0312-stagging-slot.scm.azurewebsites.net:443" msdeploySite="web-app-0312__stagging-slot" userName="$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="web-app-0312-stagging-slot - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-blu-561.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="web-app-0312__stagging-slot\$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="web-app-0312-stagging-slot - Zip Deploy" publishMethod="ZipDeploy" publishUrl="web-app-0312-stagging-slot.scm.azurewebsites.net:443" userName="$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>
+       package: ./_build
