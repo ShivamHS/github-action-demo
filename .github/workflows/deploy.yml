@@ -6,20 +6,7 @@ on:
 jobs:
 
   build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
-   # env:
-    #  Solution_Name: your-solution-name                         # Replace with your solution name, i.e. MyWpfApp.sln.
-     # Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      #Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      #Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-
+    runs-on: windows-latest  
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -61,8 +48,16 @@ jobs:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
 
-    - name: Deploy to azure
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: web-app-0312
-        publish-profile: <publishData><publishProfile profileName="web-app-0312-stagging-slot - Web Deploy" publishMethod="MSDeploy" publishUrl="web-app-0312-stagging-slot.scm.azurewebsites.net:443" msdeploySite="web-app-0312__stagging-slot" userName="$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="web-app-0312-stagging-slot - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-blu-561.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="web-app-0312__stagging-slot\$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="web-app-0312-stagging-slot - Zip Deploy" publishMethod="ZipDeploy" publishUrl="web-app-0312-stagging-slot.scm.azurewebsites.net:443" userName="$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>
+  Deploy:
+   needs: build
+   runs-on: windows-latest
+   steps:
+        - name: Downlaod Artifact
+          uses: actions/download-artifact@v3
+          with:
+           name: AppPackages
+        - name: Deploy to azure
+          uses: azure/webapps-deploy@v2
+          with:
+           app-name: web-app-0312
+           publish-profile: <publishData><publishProfile profileName="web-app-0312-stagging-slot - Web Deploy" publishMethod="MSDeploy" publishUrl="web-app-0312-stagging-slot.scm.azurewebsites.net:443" msdeploySite="web-app-0312__stagging-slot" userName="$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="web-app-0312-stagging-slot - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-blu-561.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="web-app-0312__stagging-slot\$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="web-app-0312-stagging-slot - Zip Deploy" publishMethod="ZipDeploy" publishUrl="web-app-0312-stagging-slot.scm.azurewebsites.net:443" userName="$web-app-0312__stagging-slot" userPWD="Ntksjwa2hQ2L2NlEQwtg7MekYCrujlAt3A2AewFlM4s9nipb74adTkhSbzgu" destinationAppUrl="http://web-app-0312-stagging-slot.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>
