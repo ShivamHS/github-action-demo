@@ -44,8 +44,9 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
 
+    - name: Display artifact
+      run: Get-ChildItem -Recurse
 
     - name: Deploy to azure
       uses: azure/webapps-deploy@v2
