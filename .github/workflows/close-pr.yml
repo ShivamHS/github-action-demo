@@ -11,7 +11,7 @@ jobs:
       - name: List PR
         uses: ShivamHS/PR-listing@v1.1.1
         with:
-          repo_token: ${{ github.token }}
+          repo_token: ${{ secrets.token }}
           owner: ShivamHS
           repo_name: github-action-demo
           base_branch: main
