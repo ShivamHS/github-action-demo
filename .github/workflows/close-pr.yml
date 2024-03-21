@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: List PR
-        uses: ShivamHS/PR-listing@v1.1.1
+        uses: ShivamHS/PR-listing@v1.1.2
         with:
           INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_OWNER: ShivamHS
