@@ -1,17 +1,16 @@
-name: List-PRs
+name: List All PRs
 on:
-  workflow_dispatch
+  workflow_dispatch:
 jobs:
-  job_name:
-    name: List All PRs
+  list-prs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: List PR
+      - name: List PRs
         uses: ShivamHS/PR-listing@v1.1.2
         with:
+          GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
+          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
           INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_OWNER: ShivamHS
-          GITHUB_REPO: github-action-demo
           INPUT_GITHUB_BRANCH: main
