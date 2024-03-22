@@ -10,7 +10,7 @@ jobs:
       - name: List PRs
         uses: ShivamHS/PR-listing@v1.1.3
         with:
-          GITHUB_OWNER: ${{ secrets.GITHUB_OWNER }}
-          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
+          GITHUB_OWNER: ShivamHS
+          GITHUB_REPO: github-action-demo
           INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INPUT_GITHUB_BRANCH: main
