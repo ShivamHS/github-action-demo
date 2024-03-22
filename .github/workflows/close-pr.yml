@@ -14,3 +14,9 @@ jobs:
           GITHUB_REPO: 'github-action-demo'
           INPUT_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}  '
           INPUT_GITHUB_BRANCH: 'main'
+
+      - name: Upload CSV
+        uses: action/upload-artifact@v2
+        with:
+          name: PR_CSV_Report
+          path: ${{ steps.pr-report.outputs.csv_file }}
