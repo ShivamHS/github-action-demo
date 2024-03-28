@@ -8,11 +8,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: List PRs
-        uses: ShivamHS/PR-listing@v1.1.15
+        uses: ShivamHS/PR-listing@v1.1.16
         with:
           GITHUB_OWNER: 'ShivamHS'
           GITHUB_REPO: 'github-action-demo'
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}  '
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }} '
           GITHUB_BRANCH: 'main'
-
-
