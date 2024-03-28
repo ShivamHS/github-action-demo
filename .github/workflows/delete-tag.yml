@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute Delete Release/Tag action
-        uses: ShivamHS/delete-tag@v1.0.1
+        uses: ShivamHS/delete-tag@v1.0.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repo:  ${{ github.repository }}
