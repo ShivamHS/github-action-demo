@@ -16,4 +16,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repo:  ${{ github.repository }}
-          keyword: "test"
+          keyword: "DEV"
