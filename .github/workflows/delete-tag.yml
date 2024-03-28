@@ -14,7 +14,6 @@ jobs:
       - name: Execute Delete Release/Tag action
         uses: ShivamHS/delete-tag@v1.0.1
         with:
-          owner: ShivamHS
           token: ${{ secrets.GITHUB_TOKEN }}
-          repo: github-action-demo
+          repo:  ${{ github.repository }}
           keyword: "test"
