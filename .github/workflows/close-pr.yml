@@ -12,8 +12,8 @@ jobs:
         with:
           GITHUB_OWNER: 'ShivamHS'
           GITHUB_REPO: 'github-action-demo'
-          INPUT_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}  '
-          INPUT_GITHUB_BRANCH: 'main'
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}  '
+          GITHUB_BRANCH: 'main'
 
       - name: Upload CSV
         uses: actions/upload-artifact@v2
