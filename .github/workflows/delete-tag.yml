@@ -12,9 +12,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute Delete Release/Tag action
-        uses: ShivamHS/delete-tag@v1.1.1
+        uses: ShivamHS/delete-tag@v2.0.0
         with:
           token: ${{ secrets.REPO_TOKEN }}
           repo:  github-action-demo
           owner: ShivamHS
           keyword: "DEV"
+          deletetype: tr
