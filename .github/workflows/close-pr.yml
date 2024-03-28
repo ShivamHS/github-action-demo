@@ -17,10 +17,11 @@ jobs:
 
       - name: path check
         run: |
+          cd ${{ secrets.GITHUB_WORKSPACE }}
           ls
 
       - name: Upload CSV
         uses: actions/upload-artifact@v2
         with:
           name: PR_CSV_Report
-          path: ${{ steps.pr-report.outputs.csv_file }}
+          path: ${{ secrets.GITHUB_WORKSPACE }}
