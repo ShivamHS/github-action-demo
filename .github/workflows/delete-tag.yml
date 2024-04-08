@@ -27,4 +27,4 @@ jobs:
           repo:  github-action-demo
           owner: ShivamHS
           keyword: " ${{ inputs.Keyword }} "
-          deletetype: "tr"
+          deletetype: " ${{ inputs.delete-type }} "
