@@ -2,6 +2,11 @@ name: Delete Tag
 
 on:
   workflow_dispatch:
+    inputs:
+      Keyword:  
+        type: string
+        required: true
+      
 
 jobs:
   delete:
@@ -17,5 +22,5 @@ jobs:
           token: ${{ secrets.REPO_TOKEN }}
           repo:  github-action-demo
           owner: ShivamHS
-          keyword: "DEV"
+          keyword: " ${{ inputs.Keyword }} "
           deletetype: "tr"
