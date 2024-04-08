@@ -6,6 +6,10 @@ on:
       Keyword:  
         type: string
         required: true
+      delete-type:
+        type: string
+        required: true
+      
       
 
 jobs:
