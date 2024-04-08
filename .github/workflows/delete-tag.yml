@@ -1,16 +1,7 @@
 name: Delete Tag
 
 on:
-  workflow_dispatch:
-    inputs:
-      keyword:  
-        type: string
-        required: true
-      delete-type:
-        type: string
-        required: true
-      
-      
+  workflow_dispatch:      
 
 jobs:
   delete:
