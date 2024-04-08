@@ -6,8 +6,6 @@ on:
       keyword:  
         type: string
         required: true
-		
-  
 
 jobs:
   delete:
