@@ -1,7 +1,13 @@
 name: Delete Tag
 
 on:
-  workflow_dispatch:      
+  workflow_dispatch:  
+    inputs:
+      keyword:  
+        type: string
+        required: true
+		
+  
 
 jobs:
   delete:
@@ -12,10 +18,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute Delete Release/Tag action
-        uses: ShivamHS/delete-tag@v1
+        uses: ShivamHS/delete-tag@v2
         with:
           token: ${{ secrets.REPO_TOKEN }}
           repo:  github-action-demo
           owner: ShivamHS
-          keyword: "TEST"
-          deletetype: "tag"
+          keyword: "${{ inputs.keyword }}"
+          deletetype: "tr"
