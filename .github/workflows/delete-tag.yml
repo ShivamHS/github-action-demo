@@ -18,4 +18,4 @@ jobs:
           repo:  github-action-demo
           owner: ShivamHS
           keyword: "TEST"
-          deletetype: "tr"
+          deletetype: "release"
