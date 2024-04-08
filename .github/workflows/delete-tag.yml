@@ -26,5 +26,5 @@ jobs:
           token: ${{ secrets.REPO_TOKEN }}
           repo:  github-action-demo
           owner: ShivamHS
-          keyword: " ${{ inputs.keyword }} "
-          deletetype: " ${{ inputs.delete-type }} "
+          keyword: "TEST"
+          deletetype: "tr"
