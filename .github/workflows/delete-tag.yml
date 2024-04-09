@@ -8,10 +8,27 @@ on:
         required: true
 
 jobs:
-  delete:
+
+  delete_tags:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Execute Delete Release/Tag action
+        uses: ShivamHS/delete-tag@v1
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+          repo:  github-action-demo
+          owner: ShivamHS
+          keyword: "${{ inputs.keyword }}"
+          deletetype: "tag"
+
+  delete_releases:
+      needs: delete_tags
+      runs-on: ubuntu-latest
+      steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
