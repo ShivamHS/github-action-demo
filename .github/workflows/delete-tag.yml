@@ -22,4 +22,4 @@ jobs:
           repo:  github-action-demo
           owner: ShivamHS
           keyword: "${{ inputs.keyword }}"
-          deletetype: "tr"
+          deletetype: "release"
