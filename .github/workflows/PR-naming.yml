@@ -1,7 +1,7 @@
 name: PR Nomencleture
 on:
   pull_request_review:
-    types: [submitted]
+    types: [opened, synchronize, reopened, edited]
     branches:
       - main
     
@@ -16,7 +16,7 @@ jobs:
      id: check_pr_title
      run: |
        $prTitle = "${{ github.event.pull_request.title }}"
-       $regexPattern = "GEP-\d+-[a-zA-Z_]+"
+       $regexPattern = "^GEP-\d{5}-[a-zA-Z_]+"
        if ($prTitle -notmatch $regexPattern) {
          Write-Output "PR title does not match the required format. Please use 'GEP/JIRA-ID/feature-name' format."
          exit 1
