@@ -65,7 +65,7 @@ jobs:
         unzip -o dist.zip
         ls
         mkdir dist
-        mv/*.xml /dist/
+        mv /*.xml /dist/
   
 
     - name: Final Check of folder
