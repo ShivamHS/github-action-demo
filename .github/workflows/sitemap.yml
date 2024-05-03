@@ -65,7 +65,7 @@ jobs:
         unzip -o dist.zip
         ls
         mkdir dist
-        mv /*.xml /dist/
+        mv /home/runner/work/github-action-demo/github-action-demo/*.xml /home/runner/work/github-action-demo/github-action-demo/dist/
   
 
     - name: Final Check of folder
