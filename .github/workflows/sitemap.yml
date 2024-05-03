@@ -63,7 +63,6 @@ jobs:
     - name: Extract files
       run: |
         unzip -o dist.zip
-        unzip -o dist_sa.zip
         ls
         mkdir dist
         mv/*.xml /dist/
