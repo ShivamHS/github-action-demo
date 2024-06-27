@@ -1,0 +1,21 @@
+name: PR Name Check
+
+on:
+ pull_request:
+    types: [opened, synchronize, reopened, edited] 
+    branches:
+      - master
+
+jobs:
+   pr-title-check:
+    runs-on: windows-latest
+
+    steps:
+
+      - name: PR Nomencleture
+        uses: ShivamHS/PR-naming@1.0  
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+          repo: 'github-action-demo'
+          owner: "ShivamHS"
+          pattern: "TEST-\d+-[a-zA-Z_]+"
