@@ -18,5 +18,5 @@ jobs:
 
 
       - name: Run Reusable Workflow
-        id: reusable_workflow
-        uses: .github/workflows/delete-tag-releases.yml@uk_dev
+        id: Delete Tags and Releases
+        uses: ./.github/workflows
