@@ -19,4 +19,4 @@ jobs:
 
       - name: Run Reusable Workflow
         id: delete-tag-releases
-        uses: ./.github/workflows/delete-tag-releases.yml@uk_dev
+        uses: ./HenrySchein-C/GEPAngular/.github/workflows/delete-tag-releases.yml@uk_dev
