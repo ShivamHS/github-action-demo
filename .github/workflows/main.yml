@@ -1,22 +1,19 @@
-name: Reusable Workflow
+name: resuable workfow
 
 on:
   workflow_dispatch:
 
 jobs:
-  call-reusable-workflow:
-    name: Call Reusable Workflow
-    runs-on: ubuntu-latest
+  Reusable_Workflow:
+    runs-on: Ubuntu-Latest
     steps:
-      - name: Checkout source repo
-        uses: actions/checkout@v3
-        with:
-          repository: HenrySchein-C/GEPAngular
-          ref: uk_dev
-          token: ${{ secrets.secret_github }}
-          path: GEPAngular
+    - uses: actions/checkout@v3
+      with:
+        repository: HenrySchein-C/GEPAngular
+        token: ${{ secrets.SECRET_GITHUB }}
+        ref: uk_dev
 
-      - name: Run Reusable Workflow
-        id: delete-tag-releases
-        uses: HenrySchein-C/GEPAngular/.github/workflows/delete-tag-releases.yml@uk_dev
-
+      name: check file
+    - run: |
+        pwd
+        ls 
