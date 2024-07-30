@@ -14,9 +14,9 @@ jobs:
           repository: HenrySchein-C/GEPAngular
           ref: uk_dev
           token: ${{ secrets.secret_github }}
-          path: .github/workflows
-
+          path: GEPAngular
 
       - name: Run Reusable Workflow
         id: delete-tag-releases
-        uses: ./HenrySchein-C/GEPAngular/.github/workflows/delete-tag-releases.yml@uk_dev
+        uses: HenrySchein-C/GEPAngular/.github/workflows/delete-tag-releases.yml@uk_dev
+
